@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Bungee+Spice&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: black;
+        }
+        #header {
+            text-align: center;
+            margin: 80px auto;
+            font-family: 'Bungee Spice', cursive;
+            font-size: 55px;
+        }
+
+        #mid {
+            text-align: center;
+            font-family: 'Bungee Shade', cursive;
+            font-size: 30px;
+            color: aliceblue;
+        }
+
+        #foot {
+            display: flex;
+            flex-direction: row;
+            margin-top: 70px;
+        }
+
+        #hero1>span:nth-child(1),
+        #hero2>span:nth-child(1),
+        #hero3>span:nth-child(1) {
+            font-family: 'Bungee Spice', cursive;
+            font-size: 50px;
+        }
+
+        #foot>div {
+            display: flex;
+            flex-direction: column;
+            margin: 30px auto;
+        }
+
+        span {
+            margin: 3px;
+            font-weight: 700;
+            color: aliceblue;
+        }
+        ul{
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header"></header>
+    <h3 id="mid"></h3>
+    <div id="foot"></div>
+
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            .then(resp => resp.json())
+            .then(json => print(json))
+
+
+        let header = document.getElementById('header');
+        let mid = document.getElementById('mid');
+        let foot = document.getElementById('foot');
+
+        function print(obj) {
+            console.log(obj)
+            header.innerHTML = `<h1>${obj.squadName}</h1>`;
+            mid.innerText = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
+            foot.innerHTML += `<div id="hero1"><span>${obj.members[0].name}</span></div>`;
+            foot.innerHTML += `<div id="hero2"><span>${obj.members[1].name}</span></div>`;
+            foot.innerHTML += `<div id="hero3"><span>${obj.members[2].name}</span></div>`;
+            document.getElementById('hero1').innerHTML += `<span>SecretIdentity: ${obj.members[0].secretIdentity}</span>`
+            document.getElementById('hero1').innerHTML += `<span>Age: ${obj.members[0].age}</span>`;
+            document.getElementById('hero1').innerHTML += `<span>Superpowers:<ul id="ul1"></ul></span>`;
+            document.getElementById('ul1').innerHTML += `<li>${obj.members[0].powers[0]}</li>`;
+            document.getElementById('ul1').innerHTML += `<li>${obj.members[0].powers[1]}</li>`;
+            document.getElementById('ul1').innerHTML += `<li>${obj.members[0].powers[2]}</li>`;
+            document.getElementById('hero2').innerHTML += `<span>SecretIdentity: ${obj.members[1].secretIdentity}</span>`
+            document.getElementById('hero2').innerHTML += `<span>Age: ${obj.members[1].age}</span>`
+            document.getElementById('hero2').innerHTML += `<span>Superpowers:<ul id="ul2"></ul></span>`
+            document.getElementById('ul2').innerHTML += `<li>${obj.members[1].powers[0]}</li>`;
+            document.getElementById('ul2').innerHTML += `<li>${obj.members[1].powers[1]}</li>`;
+            document.getElementById('ul2').innerHTML += `<li>${obj.members[1].powers[2]}</li>`;
+            document.getElementById('hero3').innerHTML += `<span>SecretIdentity: ${obj.members[2].secretIdentity}</span>`
+            document.getElementById('hero3').innerHTML += `<span>Age: ${obj.members[2].age}</span>`
+            document.getElementById('hero3').innerHTML += `<span>Superpowers:<ul id="ul3"></ul></span>`
+            document.getElementById('ul3').innerHTML += `<li>${obj.members[2].powers[0]}</li>`;
+            document.getElementById('ul3').innerHTML += `<li>${obj.members[2].powers[1]}</li>`;
+            document.getElementById('ul3').innerHTML += `<li>${obj.members[2].powers[2]}</li>`;
+            document.getElementById('ul3').innerHTML += `<li>${obj.members[2].powers[3]}</li>`;
+            document.getElementById('ul3').innerHTML += `<li>${obj.members[2].powers[4]}</li>`;
+
+        }
+
+    </script>
+</body>
+
+</html>

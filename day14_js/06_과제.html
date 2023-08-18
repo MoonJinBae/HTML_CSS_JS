@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 맞추기</title>
+
+</head>
+<body>
+    <h1>구구단 영역(2*1=2 ~ 9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직</h1>
+    <ul>
+        <li>총 문제는 10문제 출제</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 나타냄</li>
+        <li>총 10개의 문제 중 정답률을 출력</li>
+    </ul>
+    <button type="button" id="btn">문제출제</button>
+    <ol id="print"></ol>
+    <h3 id="per"></h3>
+    <button type="button" id="btn2">정답확인</button>
+    
+    <script>
+        let numArr = []; // 정답 저장 배열
+        let numArr2 = []; // 유저 입력값 저장 배열
+        let answer = 0; // 정답수
+        document.getElementById('btn').addEventListener('click', ()=> {
+            document.getElementById('per').innerText = `정답률 : ${answer / 10 * 100}%`;
+            answer = 0;
+            let str = "";
+            for(let i = 0; i < 10; i++) {
+                let num1 = Math.floor(Math.random()*8)+2;
+                let num2 = Math.floor(Math.random()*9)+1;
+                let num = num1 * num2;
+                numArr[i] = num; // 정답 저장
+                str += `<li id="li${i+1}">${num1} x ${num2} = <input type="text" id="result${i+1}"></li>`
+            }
+            document.getElementById('print').innerHTML = str;
+        })
+        document.getElementById('btn2').addEventListener('click', ()=> {
+            // 입력값 저장
+            for(let i = 0; i < 10; i++){
+                numArr2[i] = (document.getElementById(`result${i+1}`).value);
+            }
+            // 정답 확인
+            for(let i = 0; i < numArr.length; i++) {
+                if(Number(numArr[i]) == Number(numArr2[i])) {
+                    document.getElementById(`result${i+1}`).style.backgroundColor = "greenyellow";
+                    document.getElementById(`result${i+1}`).value += ` => 정답`;
+                    answer++;
+                } else {
+                    document.getElementById(`result${i+1}`).style.backgroundColor = "tomato";
+                    document.getElementById(`result${i+1}`).value += ` => 오답`;
+                }
+            }
+            document.getElementById('per').innerText = `정답률 : ${answer / 10 * 100}%`;
+            answer = 0;
+        })
+    </script>
+</body>
+</html>

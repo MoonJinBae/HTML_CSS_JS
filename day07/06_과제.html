@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vmax;
+            color: white;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(/image/design.jpg);
+        }
+        .top-left{
+            position: fixed;
+            padding: 20px 30px;
+            width: 100px;
+            height: 50px;
+        }
+        .top-left>a{
+            font-size: 30px;
+            font-weight: 550;
+            color: white;
+            text-decoration: none;
+        }
+        .top-right{
+            position: fixed;
+            top: 10px;
+            right: 70px;
+        }
+        .top-right>ul>li{
+            display: inline;
+        }
+        .top-right>ul>li>a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        .top-right>ul>li>a:hover{
+            color: darkgray;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        p{
+            font-size: 70px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .center>a{
+            display: block;
+            width: 120px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgb(41, 144, 41);
+            height: 20px;
+            line-height: 20px;
+            border-radius: 20px;
+            padding: 10px 10px 15px;
+            text-align: center;
+            margin: auto;
+        }
+        .center>a:hover{
+            color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left"><a href="#">DESIGN</a></div>
+    <div class="top-right">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">LOGIN</a></li>
+            <li><a href="#">SIGNIN</a></li>
+            <li><a href="#">BOARD</a></li>
+        </ul>
+    </div>
+    <div class="center">
+        <p>Welcome to Front-End <br> World!</p>
+        <a href="#">Learn More</a>
+    </div>
+</body>
+</html>

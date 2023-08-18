@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+    <style>
+        .green{
+            background-color: yellowgreen;
+            color: black;
+            width: 500px;
+            text-align: center;
+        }
+        .red{
+            background-color: red;
+            color: black;
+            width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        input 파일에 파일명, 확장자를 입력하여 전송 버튼을 누르면
+        이미지 파일인지 검사하여 이지미 파일이면
+        '정상파일입니다.' <초록색>
+        이미지 파일이 아니면
+        '이미지 파일만 가능합니다.' <빨간색>
+        출력하기
+        이미지파일 : jpg, png, jpeg, gif
+        - 대문자로 된 확장자명도 판단 가능해야 함.
+     -->
+     <h1>이미지 파일 검사</h1>
+     파일명: <input type="text" id="file">
+     <button type="button" id="btn">검사</button>
+     <h2 id="result"></h2>
+     <script>
+
+        document.getElementById('btn').addEventListener('click', () => {
+            let file = document.getElementById('file').value;
+            let sub = file.slice(file.lastIndexOf('.')+1);
+            console.log(sub);
+
+            if(sub.match(/(jpg|jpeg|png|gif)/i)){
+                document.getElementById('result').innerHTML = `<h2 class="green">정상 파일입니다.</h2>`;
+            } else {
+                document.getElementById('result').innerHTML = `<h2 class="red">이미지 파일만 가능합니다.</h2>`;
+            }
+        });
+
+     </script>
+</body>
+</html>

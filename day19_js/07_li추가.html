@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>li추가</title>
+</head>
+<body>
+    <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn2">Li Tag 하나씩 추가하기</button>
+    <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn4">Li Tag 하나씩 추가하기</button>
+    <ul id="all"></ul>
+    <hr>
+    <ol id="one"></ol>
+    <hr>
+    <ul id="all2"></ul>
+    <hr>
+    <ol id="one2"></ol>
+    
+    <script>
+        let arr = ['HTML', 'CSS', 'JavaScript', 'SQL'];
+
+        document.getElementById('btn1').addEventListener('click', ()=>{
+            if(!(document.getElementById('all').innerHTML == '')){
+                document.getElementById('all').innerHTML = '';
+            }else {
+                document.getElementById('all').innerHTML = `<li>${arr[0]}</li><li>${arr[2]}</li><li>${arr[2]}</li><li>${arr[3]}</li>`;
+            }
+        });
+
+        let index = 0;
+        document.getElementById('btn2').addEventListener('click', ()=>{
+            document.getElementById('one').innerHTML += `<li>${arr[index]}</li>`;
+            index++;
+            if(index > arr.length){
+                index = 0;
+                document.getElementById('one').innerHTML = '';
+            }
+        });
+
+        // appendchild 사용
+        document.getElementById('btn3').addEventListener('click', ()=>{
+            let ul = document.getElementById('all2');
+            arr.forEach((elem) => {
+                let li = document.createElement('li'); // str = `<li></li>`
+                li.innerText = elem; // str = `<li>%{elem}</li>`
+                ul.appendChild(li); // innerHTML = str;
+            })
+        });
+        
+        let idx = 0;
+        document.getElementById('btn4').addEventListener('click', ()=>{
+            let ul = document.getElementById('one2');
+            if(idx < arr.length){
+                let li = document.createElement('li'); // str = `<li></li>`
+                li.innerText += arr[idx]; // str = `<li>%{elem}</li>`
+                ul.appendChild(li); // innerHTML = str;
+                idx++;
+            }
+
+        });
+
+    </script>
+</body>
+</html>

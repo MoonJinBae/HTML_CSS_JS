@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVER</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        .bar{
+            position: relative;
+            margin: auto;
+            width: 800px;
+            height: 80px;
+            border: 3px solid limegreen;
+            border-radius: 7px;
+        }
+        .inner-bar{
+            border: none;
+            width: 720px;
+            height: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+        }
+        .inner-bar2{
+            border: none;
+            width: 80px;
+            height: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            right: 0;
+        }
+        .text{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+        }
+        .si{
+            position: absolute;
+            box-sizing: border-box;
+            display: inline-block;
+            text-align: center;
+        }
+        .bi-keyboard{
+            color: lightgray;
+            top: 40px;
+            transform: translate(0, -50%);
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            font-size: 30px;
+        }
+        .bi-caret-down-fill{
+            color: limegreen;
+            top: 40px;
+            transform: translate(0, -50%);
+            right: 0;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+        }
+        .bt{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            background-color: limegreen;
+            display: block;
+            border: none;
+        }
+        .bi-search-heart{
+            color: white;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+            display: block;
+            margin: auto;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="search">
+        <div class="bar"> 
+            <div class="inner-bar">
+                <input type="text" name="search" class="text">
+                <i class="si bi-keyboard"></i>
+                <i class="si bi-caret-down-fill"></i>
+            </div>
+            <div class="inner-bar2">
+                <button type="submit" name="search" class="bt">
+                    <i class="bi bi-search-heart"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

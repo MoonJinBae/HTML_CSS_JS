@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("----- 예제 -----")
+        // class User 생성
+        // 생성자로 name, birth를 받아서 멤버변수로 저장
+        // 메서드 age() 호출하면 나이를 리턴
+        // status() 성인인지 미성년자인지 콘솔에 출력
+        /* 생성자에서 선언된 값을 리턴시...
+            get age(){
+                return this._age; // 내부속성이라는 뜻
+            }
+        */
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = birth;
+            }
+            age(){
+                let year = new Date().getFullYear();
+                this.age = Number(year) - Number(this.birth);
+                return this.age;
+            }
+            status(){
+                this.result = this.age >= 20 ? '성인' : '미성년자';
+                console.log(`성인여부: ${this.result}`);
+            }
+        }
+        let son = new User('손오공',1988);
+        // 메서드일 경우
+        console.log(`이름: ${son.name}, 나이: ${son.age()}`);
+        son.status();
+        console.log(son.name);
+        console.log(son.age);
+        console.log(son.birth);
+    </script>
+</body>
+</html>

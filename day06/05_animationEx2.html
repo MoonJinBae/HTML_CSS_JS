@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animationEX2</title>
+    <style>
+        @keyframes jump{
+            from{
+                bottom: 0;
+            }
+            25%{
+                bottom: 300px;
+            }
+            50%{
+                bottom: 0;
+            }
+            75%{
+                bottom: 200px;
+            }
+            to{
+                bottom: 0;
+            }
+        }
+        .ani{
+            color: blueviolet;
+            font-size: 100px;
+            position: absolute;
+            animation-name: jump;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="ani">Hello~!!</div>
+</body>
+</html>

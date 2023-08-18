@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 for문</title>
+    <style>
+        .gugudan{
+            text-align: center;
+            margin-right: 30px;
+            padding: 0;
+            border: 1px solid black;
+            display: inline-flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            list-style: none;
+        }
+        .gugudan>dd{
+            list-style: none;
+            padding: 0px 5px 0px 5px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        구구단 출력하기
+    </h1>
+    <button type="button" id="btn">구구단 출력</button>
+    <dl id="gugudan2" class="gugudan"></dl>
+    <dl id="gugudan3" class="gugudan"></dl>
+    <dl id="gugudan4" class="gugudan"></dl>
+    <dl id="gugudan5" class="gugudan"></dl>
+    <dl id="gugudan6" class="gugudan"></dl>
+    <dl id="gugudan7" class="gugudan"></dl>
+    <dl id="gugudan8" class="gugudan"></dl>
+    <dl id="gugudan9" class="gugudan"></dl>
+    <div>
+        <input type="text" id="dan">
+        <button id="danBtn">출력</button>
+        <dl id="xdan" class="gugudan"></dl>
+    </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            let gugudan2 = "2단<br>";
+            let gugudan3 = "3단<br>";
+            let gugudan4 = "4단<br>";
+            let gugudan5 = "5단<br>";
+            let gugudan6 = "6단<br>";
+            let gugudan7 = "7단<br>";
+            let gugudan8 = "8단<br>";
+            let gugudan9 = "9단<br>";
+            for(let i = 2; i <= 9; i++){
+                for(let j = 1; j <= 9; j++){
+                    switch(i){
+                        case 2 : gugudan2 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 3 : gugudan3 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 4 : gugudan4 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 5 : gugudan5 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 6 : gugudan6 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 7 : gugudan7 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 8 : gugudan8 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                        case 9 : gugudan9 += `<dd>${i} x ${j} = ${i*j}</dd><br>`; break;
+                    }
+                }
+            }
+            document.getElementById('gugudan2').innerHTML = gugudan2;
+            document.getElementById('gugudan3').innerHTML = gugudan3;
+            document.getElementById('gugudan4').innerHTML = gugudan4;
+            document.getElementById('gugudan5').innerHTML = gugudan5;
+            document.getElementById('gugudan6').innerHTML = gugudan6;
+            document.getElementById('gugudan7').innerHTML = gugudan7;
+            document.getElementById('gugudan8').innerHTML = gugudan8;
+            document.getElementById('gugudan9').innerHTML = gugudan9;
+        });
+
+        document.getElementById('danBtn').addEventListener('click', () => {
+            let dan = document.getElementById('dan').value;
+            let gugudan = "";
+            for(let i = 1; i <= 9; i++){
+                gugudan += `<dd>${dan} x ${i} = ${dan*i}</dd><br>`;
+            };
+            document.getElementById('xdan').innerHTML = gugudan;
+        });
+    </script>
+</body>
+</html>

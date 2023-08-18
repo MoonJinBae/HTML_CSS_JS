@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventEx01</title>
+    <style>
+        fieldset{
+            width: 600px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            margin: 50px auto;
+        }
+        legend{
+            margin: 20px;
+        }
+        .input{
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px auto;
+            text-align: center; 
+        }
+        .list{
+            width: 550px;
+            font-size: 20px;
+            font-weight: 700;
+            margin: auto;
+            padding: 10px;
+            border: 2px solid black;
+            list-style: none;
+        }
+        #sum, #avg{
+            margin: 20px 0px 10px 0px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적 (합계, 평균)</legend>
+            이름 : <input type="text" id="name" class="input"><br>
+            국어 : <input type="text" id="kor" class="input"><br>
+            영어 : <input type="text" id="eng" class="input"><br>
+            수학 : <input type="text" id="math" class="input"><br>
+            <!-- <button type="button" onclick="clickEventInput()">전송</button> -->
+            <button type="button" id="sum">합계</button>
+            <button type="button" id="avg">평균</button>
+        </fieldset>
+    </form>
+    <!-- 출력 -->
+    <ol id="score"></ol>
+
+    <script>
+        // 이름, 국어점수, 영어점수, 수학점수 입력받아
+        // 합계와 평균을 화면에 출력
+        document.getElementById('sum').addEventListener('click', ()=>{
+            let name = document.getElementById('name').value;
+            console.log(name);
+            let kor = document.getElementById('kor').value;
+            console.log(kor);
+            let eng = document.getElementById('eng').value;
+            console.log(eng);
+            let math = document.getElementById('math').value;
+            console.log(math);
+            // 타입 변경
+            kor = Number(kor);
+            eng = Number(eng);
+            math = Number(math);
+
+            document.getElementById('score').innerHTML = `
+            <hr>
+            <li class="list">이름 : ${name}, 국어점수 : ${kor}, 영어점수 : ${eng}, 수학점수 : ${math}</li>
+            <br>
+            <li class="list">합계 : ${kor + eng + math}</li>`;
+        });
+
+        document.getElementById('avg').addEventListener('click', ()=>{
+            let name = document.getElementById('name').value;
+            console.log(name);
+            let kor = document.getElementById('kor').value;
+            console.log(kor);
+            let eng = document.getElementById('eng').value;
+            console.log(eng);
+            let math = document.getElementById('math').value;
+            console.log(math);
+            // 타입 변경
+            kor = Number(kor);
+            eng = Number(eng);
+            math = Number(math);
+
+            document.getElementById('score').innerHTML = `
+            <hr>
+            <li class="list">이름 : ${name}, 국어점수 : ${kor}, 영어점수 : ${eng}, 수학점수 : ${math}</li>
+            <br>
+            <li class="list">평균 : ${(kor + eng + math) / 3}</li>`;
+        });
+    </script>
+</body>
+</html>

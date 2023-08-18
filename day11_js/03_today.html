@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hi{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>오늘은?</h1>
+    <button type="button" id="bt">Today</button>
+    <h3 id="date" class="">
+        <!-- 오늘날짜와 요일을 출력 -->
+        <!-- 2020. 07. 31(월) -->
+    </h3>
+
+    <script>
+        // 오늘날짜 변환
+        let today = new Date();
+        console.log(typeof today);
+        console.log(today.getFullYear()); // 년도
+        console.log(today.getMonth() + 1); // 월(0 ~ 11 -> +1해줘야함)
+        console.log(today.getDate()); // 일 반환 1 ~ 31
+        console.log(today.getDay()); // 요일 0(일) ~ 6(토)
+
+        // getHours, minutes, seconds : 시분초 추출
+        let today2 = today.toLocaleDateString(); // 년월일 추출
+        console.log(today2);
+
+        let time = today.toLocaleTimeString(); // 시간만 추출
+        console.log(time);
+        console.log(today.toLocaleString()); // 년월일 시분초
+
+        document.getElementById('bt').addEventListener('click', () => {
+            let today = new Date();
+            let year = today.getFullYear(); // 년도
+            console.log(year);
+            let month = String((today.getMonth() + 1)).padStart(2, "0"); // 월(0 ~ 11 -> +1해줘야함)
+            console.log(month);
+            let date = String(today.getDate()).padStart(2, "0"); // 일 반환 1 ~ 31
+            console.log(date);
+            let day = today.getDay(); // 요일 0(일) ~ 6(토)
+            switch (day) {
+                case 0: day = "(일)"; break;
+                case 1: day = "(월)"; break;
+                case 2: day = "(화)"; break;
+                case 3: day = "(수)"; break;
+                case 4: day = "(목)"; break;
+                case 5: day = "(금)"; break;
+                case 6: day = "(토)"; break;
+            }
+            console.log(day);
+            document.getElementById('date').innerText = `${year}. ${month}. ${date}${day}`;
+        });
+    </script>
+</body>
+
+</html>

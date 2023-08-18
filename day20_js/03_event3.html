@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event3</title>
+    <style>
+        h2{
+            color: blue;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">엘리먼트 만들기</button>
+    <div id="newBtn"></div>
+    <div id="h2"></div>
+    <h2 id="h"></h2>
+    <script>
+        document.getElementById('btn').addEventListener('click', ()=>{
+            document.getElementById('newBtn').innerHTML = `<button id="btn2" onclick="print()">생성된 버튼</button>`;
+        });
+
+        function print(){
+            document.getElementById('h2').innerHTML = `<h2>생성된 버튼을 클릭함!</h2>`;
+            document.getElementById('h').innerText = '버튼생성 완료';
+        }
+        // 첫 화면 시점에 btn2 id가 없으면 이벤트리스터 실행 안됨
+        // document.getElementById('btn').addEventListener
+
+        // 동적으로 생성된 엘리먼트에 이벤트를 부여
+        // 문서 전체에 리스터를 장착 엘리먼트 선택
+        document.addEventListener('click', (e)=>{
+            console.log(e.target.id); // 내가 화면에서 선택한 태그의 id
+            if(e.target.id == 'btn2'){
+                document.getElementById('h2').innerHTML += `<h2>ㅎㅎ</h2>`
+            }
+        })
+    </script>
+</body>
+</html>

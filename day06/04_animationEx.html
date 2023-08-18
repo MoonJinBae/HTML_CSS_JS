@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animationEX</title>
+    <style>
+        .box{
+            background-color: blueviolet;
+            width: 150px;
+            height: 150px;
+            animation-name: move;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            position: sticky;
+        }
+        @keyframes move{
+            0%{
+                left: 0;
+            }
+            50%{
+                left: 100%;
+                transform: translate(-100%);
+            }
+            100%{
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <h1>
+        자바스크립트에서 데이터 타입의 확장 개념
+        집합 데이터를 다룰 수 있는 객체
+    </h1>
+    <ul>
+        <li>
+            set은 중복데이터 허용x : 중복데이터가 들어오면 체크 후 하나만 남김
+        </li>
+        <li>
+            set() : 파라미터는 주로 배열에 사용, 배열의 index, value 값을 활용하여 집합데이터를 만듦
+        </li>
+        <li>
+            set 전용 메서드들이 있음.
+        </li>
+        <li>
+            new set() or new set(array) : set 객체를 생성 및 초기화
+        </li>
+        <li>
+            set.add(value) : 데이터 추가
+        </li>
+        <li>
+            set.delete(value) : 데이터 삭제
+        </li>
+        <li>
+            set.has(value) : 데이터의 존재 여부 확인 true / false 리턴
+        </li>
+        <li>
+            set.forEach(callback function) : set 순환
+        </li>
+        <li>
+            set.entries(), set.keys(), set.values() : 리턴 타입 => setIterator 형식
+            별도의 메서드를 활용하여 접근 (for of)
+        </li>
+        <li>
+            set.size : set의 개수 (괄호없음)
+        </li>
+    </ul>
+
+    <script>
+        const tsetSet = new Set(['html', 'css', 'js']);
+        console.log(tsetSet);
+        tsetSet.add('react');
+        console.log(tsetSet.size);
+        tsetSet.delete('html');
+        console.log(tsetSet);
+        console.log(tsetSet.has('css'));
+        console.log(tsetSet.has('html'));
+        console.log("----------------------");
+
+        tsetSet.forEach((e, i, s)=> {
+            console.log(i,e,s);
+        })
+
+        // SetIterator : Set의 상위 인터페이스
+        // entries() : pair 값으로 가져온다.
+        console.log(tsetSet.entries())
+        console.log(tsetSet.keys())
+        console.log(tsetSet.values())
+
+        // for of : Symbol.iterator 속성을 가지는 컬렉션에서 적용
+        // 반복이 가능한 요소 : 배열, map, set iterable(반복이가능)한 요소
+
+        for(const iter of tsetSet.entries()){
+            // iter의 속성은 배열
+            console.log(iter);
+            iter.forEach((e, i, s) => {
+                console.log(i,e);
+            })
+        }
+        for(const iter of tsetSet.keys()){
+            console.log(iter);
+        }
+        console.log("--------------------");
+        for(const iter of tsetSet.values()){
+            console.log(iter);
+        }
+
+        tsetSet.clear(); // set 비우기
+        console.log(tsetSet);
+
+    </script>
+</body>
+</html>

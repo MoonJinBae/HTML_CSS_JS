@@ -1,0 +1,131 @@
+@import url(01_reset.css);
+@font-face {
+    font-family: hansans;
+    src: url(/font/Black_Han_Sans/BlackHanSans-Regular.ttf);
+}
+@font-face {
+    font-family: jua;
+    src: url(/font/Jua/Jua-Regular.ttf);
+}
+    
+body{
+    font-family: hansans;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/image/con.jpg);
+    background-size: cover;
+    min-width: 900px;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    flex-wrap: wrap;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+.navbar>a{
+    margin: 30px 0px 30px 50px;
+    font-size: 50px;
+}
+.navbar>a:hover{
+    font-size: 55px;
+}
+.navbar>ul>li{
+    display: inline-block;
+    right: 0;
+    margin: 30px 50px 0px 0px;
+}
+.navbar>ul>li>a{
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+.navbar>ul>li>a:hover{
+    color: darkgray;
+    
+}
+.main-img{
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/image/shopping.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+h1{
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 50px;
+}
+.products{
+    margin: auto;
+    width: 1200px;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.products a{
+    /* border: 1px solid black; */
+    margin: 50px auto;
+    display: block;
+    width: 350px;
+    height: 350px;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+}
+.products .text{
+    position: absolute;
+    top: 170px;
+    left: 140px;
+    color: #FA383E;
+    font-size: 20px;
+    display: none;
+}
+.products a img{
+    border-radius: 7px;
+    display: block;
+    width: 100%;
+    height:200px;
+}
+.products a img:hover{
+    transform: translate(10px, 10px);
+    transition: 0.5s;
+}
+.products>a>ul>li{
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: jua;   
+}
+.footer{
+    background-color: white;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+.footer a{
+    text-decoration: none;
+}
+.bi{
+    display: inline-block;
+    line-height: 150px;
+    font-size: 30px;
+}
+.bi-instagram{
+    color: #FA383E;
+}
+.bi-facebook{
+    color: #3498db;
+    margin: 0px 20px 0px 20px;
+}
+.bi-twitter{
+    color: #0067c3;
+}

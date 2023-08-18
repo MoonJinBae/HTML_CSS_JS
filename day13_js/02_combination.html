@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array & Object</title>
+</head>
+
+<body>
+    <h1>
+        데이터를 다룰 때 배열과 객체를 혼용하여 다루는 경우가 많음
+    </h1>
+    <ul>
+        <li>
+            배열안에 객체를 저장, 그 객체 안에 다시 배열이 저장되어 있는 형태
+        </li>
+        <li>
+            이러한 조합의 형태에서는 for of, for in을 적절히 사용할 수 있어야 함
+        </li>
+        <li>
+            for of : 배열을 탐색(Array)
+            for(저장변수 of 배열)
+        </li>
+        <li>
+            for in : 객체를 탐색(Object)
+            for(키를 저장할 변수 in 객체){
+            객체명[키네임]; => value 추출
+            }
+        </li>
+    </ul>
+
+    <script>
+        const memberObject = {
+            name: 'kim',
+            age: 20,
+            married: false,
+            favors: ['coffee', 'game', 'movie', 'car', 'etc...']
+        };
+        console.log(memberObject);
+
+        const people = [];
+        // people에 memberObject를 5명 추가
+        for (let i = 0; i < 5; i++) {
+            let copy = Object.assign({}, memberObject)
+            people.push(copy);
+        };
+
+        people[1].name = 'park';
+        people[2].name = 'hong';
+        people[3].name = 'lee';
+        people[4].name = 'choi';
+        people[1].age = 30;
+        people[2].age = 25;
+        people[3].age = 35;
+        people[4].age = 22;
+        people[1].married = true;
+        people[3].married = true;
+
+        console.log(people);
+        console.log('---------------------');
+
+        // people 배열 탐색 => for of
+        for (let member of people) {
+            console.log(member); // 각각의 Object {} 로 분리
+            // Object 탐색 => for in
+            for (let keyName in member) {
+                console.log(keyName);
+                console.log(member[keyName]);
+                // 객체 안의 배열 탐색
+                if (keyName == 'favors') {
+                    for (let favor of member[keyName]) {
+                        console.log(favor);
+                    }
+                } else {
+                    console.log(keyName);
+                    console.log(member[keyName]);
+                }
+            }
+        }
+        console.log("---playList---")
+        // Object를 생성해서 배열에 5개 복사 탐색
+        // 
+        const singer = {
+            name: "Anne Marie",
+            age: 28,
+            addr: 'Germany',
+            songList: {
+                song1: '2002',
+                song2: 'Beautiful',
+                song3: 'Friends'
+            }
+        };
+
+        const playList = [];
+        for (let i = 0; i < 5; i++) {
+            let copy = Object.assign({}, singer)
+            playList.push(copy);
+        }
+        console.log(playList);
+
+        playList[1].name = "정엽";
+        playList[2].name = "하림";
+        playList[3].name = "쏠";
+        playList[4].name = "죠지";
+        playList[1].age = 40;
+        playList[2].age = 42;
+        playList[3].age = 24;
+        playList[4].age = 26;
+        playList[1].addr = "서울";
+        playList[2].addr = "일산";
+        playList[3].addr = "인천";
+        playList[4].addr = "서울";
+        playList[1].songList.song1 = "나비효과"
+        playList[2].songList.song1 = "출국"
+        playList[3].songList.song1 = "slow"
+        playList[4].songList.song1 = "고백"
+        playList[1].songList.song2 = "Nothing Better "
+        playList[2].songList.song2 = "난치병"
+        playList[3].songList.song2 = "Round"
+        playList[4].songList.song2 = "아름"
+        playList[1].songList.song3 = "한발짝도 난"
+        playList[2].songList.song3 = "사랑이 다른 사랑으로 잊혀지네"
+        playList[3].songList.song3 = "음음"
+        playList[4].songList.song3 = "하루종일"
+
+        for (let m of playList) {
+            console.log("-- playList 배열안 하나의 객체 --");
+            console.log(m); //객체
+            for (let m2 in m) {
+                console.log("m2는 m객체의 key")
+                if (m2 == "songList") {
+                    for(let m3 in m[m2])
+                    console.log(`${m3}: ${m[m2][m3]}`);
+                }else{
+                    console.log(`${m2}: ${m[m2]}`);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

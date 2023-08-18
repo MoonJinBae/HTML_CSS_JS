@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imageAuto</title>
+</head>
+<body>
+    <div id="img">
+        <img src="" alt="" id="image">
+    </div>
+    
+    <script>
+        let imgArr = ['/image/food_bugger.jpg','/image/food_pizza.jpg','/image/food_pasta.jpg','/image/food_salad.jpg'];
+
+        let img = document.getElementById('img');
+
+        setInterval(showImage, 1000);
+        function showImage(){
+            let ran = random();
+            console.log(ran)
+            // img.innerHTML = `<img src="${imgArr[ran]}" alt="">`;
+            document.getElementById('image').src = imgArr[ran];
+        }
+
+        function random(){
+            let ran = Math.floor(Math.random()*4);
+           return ran;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 속성</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid rgb(0, 46, 214);
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+        }
+        thead{
+            border-top: 2px solid rgb(0, 46, 214);
+            border-bottom: 2px solid rgb(0, 46, 214);
+            background-color: aqua;
+        }
+        tfoot{
+            border-bottom: 2px solid rgb(0, 46, 214);
+        }
+        tbody>tr:nth-child(2n){
+            background-color: aquamarine;
+        }
+        tbody>tr:hover{
+            background-color: coral;
+            color: aliceblue;
+        }
+    </style>
+    <!-- 표에 CSS 넣기 -->
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>90</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>손오공</td>
+                <td>80</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>사오정</td>
+                <td>70</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>저팔계</td>
+                <td>50</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>삼장법사</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tfoot>
+                <td>합계</td>
+                <td>100</td>
+                <td>100</td>
+            </tfoot>
+        </tbody>
+    </table>
+</body>
+</html>

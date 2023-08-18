@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>updown</title>
+</head>
+<body>
+    <h1>Up Down Game</h1>
+    <button type="button" onclick="random()">랜덤 숫자 생성 버튼</button>
+    <button type="button" onclick="window.location.reload()">다시시도</button>
+    <h3 id="cnt"></h3>
+    <input type="text" id="num">
+    <button type="button" id="btn">정답!!</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let ran = 0;
+        let cnt = 10;
+        let doc = document.getElementById('result');
+        function random() {
+            ran = Math.floor(Math.random()*99)+1;
+            console.log(ran);
+            document.getElementById('cnt').innerText = "랜덤수를 생성했습니다."
+        }
+
+        document.getElementById('btn').addEventListener('click', () => {
+            let num = document.getElementById('num').value;
+            
+            if(ran == 0){
+                doc.innerText = `랜덤수를 생성해주세요.`;
+            } 
+            else if(cnt == 1) {
+                cnt = 10;
+                document.getElementById('cnt').innerText = `끝!!`;
+                return doc.innerText = `실패~!! 정답[${ran}]`
+            }
+            else if(ran == num) {
+                return doc.innerText = `정답!!`;
+            }
+            else if(num < ran && 0 < num) {
+                doc.innerText = `틀렸습니다 Up!!`;
+                cnt--;
+            }
+            else if(num > ran && num < 100) {
+                doc.innerText = `틀렸습니다 Down!!`;
+                cnt--;
+            }  
+            else {
+                doc.innerText = `범위를 벗어났습니다.`;
+            }
+            document.getElementById('cnt').innerText = `남은기회 ${cnt}`;
+        })
+    </script>
+</body>
+</html>

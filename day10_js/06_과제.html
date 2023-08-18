@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+<body>
+    <h3>데이터 리스트</h3>
+    <ol>
+        <li>이름</li>
+        <li>거주지</li>
+        <li>
+            좋아하는 리스트
+            <ul>
+                <li>1. ?</li>
+                <li>2. ?</li>
+                <li>3. ?</li>
+            </ul>
+        </li>
+        <li>이메일</li>
+        <li>pet 소유 여부</li>
+        <li>지금 가장 원하는 것</li>
+    </ol>
+    <h3>리스트의 구조에 따라 자바스크립트 객체를 만들어보자</h3>
+
+    <!-- 입력받을 input 구조 생성 -->
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            이름 : <input type="text" id="name"><br>
+            주소 : <input type="text" id="addr"><br>
+            좋아하는리스트1 : <input type="text" id="favor1"><br>
+            좋아하는리스트2 : <input type="text" id="favor2"><br>
+            좋아하는리스트3 : <input type="text" id="favor3"><br>
+            이메일 : <input type="text" id="email"><br>
+            pet소유 여부 : <input type="text" id="pet" placeholder="Y / N"><br>
+            지금 가장 원하는 것 : <input type="text" id="wanna">
+        </fieldset>
+        <button type="button" onclick = "getDatas()">전송</button>
+        <button type="button" class="print">출력</button>
+        
+    </form>    
+
+    <dl class="dl"></dl>
+
+    <script>
+        const dataObj = {
+            name:"",
+            addr:"",
+            favor:{
+                favor1:"",
+                favor2:"",
+                favor3:""
+            },
+            email:"",
+            pet:"",
+            wanna:""
+        };
+
+        // 위 html에서 받은 값을 객체에 저장 후 콘솔에 출력
+        // let 변수명;
+        // 변수명 = 값;
+        function getDatas(){
+            dataObj.name = document.getElementById('name').value;
+            dataObj.addr = document.getElementById('addr').value;
+            dataObj.favor.favor1 = document.getElementById('favor1').value;
+            dataObj.favor.favor2 = document.getElementById('favor2').value;
+            dataObj.favor.favor3 = document.getElementById('favor3').value;
+            dataObj.email = document.getElementById('email').value;
+            dataObj.pet = document.getElementById('pet').value;
+            dataObj.wanna = document.getElementById('wanna').value;
+            // 콘솔에 출력
+            console.log(dataObj);
+        }
+        // 저장된 객체 화면에 출력
+        document.querySelector('.print').addEventListener('click', () => {
+            document.querySelector('dl').innerHTML = `<dd>이름: ${dataObj.name}</dd>
+            <dd>주소: ${dataObj.addr}</dd>
+            <dd>좋아하는리스트: 1.[${dataObj.favor.favor1}], 2.[${dataObj.favor.favor2}], 3.[${dataObj.favor.favor3}]</dd>
+            <dd>이메일: ${dataObj.email}</dd>
+            <dd>pet소유 여부: ${dataObj.pet}</dd>
+            <dd>지금 가장 원하는 것: ${dataObj.wanna}</dd>`;
+        });
+
+    </script>
+</body>
+</html>

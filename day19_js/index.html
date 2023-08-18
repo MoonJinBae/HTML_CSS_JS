@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나라</title>
+    <link rel="stylesheet" href="/day03/world.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="world" style="text-align: center"><h1 id="h1">WORLD</h1></div>
+    <div id="list">
+        <ul>
+            <li>
+                <a href="#" target="_self" id="kor" onclick="clickCity(this)">한국</a>
+            </li>
+            <li>
+                <a href="#" target="_self" id="paris" onclick="clickCity(this)">파리</a>
+            </li>
+            <li>
+                <a href="#" target="_self" id="us" onclick="clickCity(this)">미국</a>
+            </li>
+            <li>
+                <a href="#" target="_self" id="jp" onclick="clickCity(this)">일본</a>
+            </li>
+        </ul>
+    </div>
+    <div id="img">
+        <img src="/image/sunset-gedf09713e_1280.jpg" alt="">
+    </div>
+
+    <script>
+        const clickCity = (elem) => {
+            let idVal = elem.id;
+
+            switch(idVal){
+                case 'kor' : document.getElementById('img').innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`;
+                break;
+                case 'paris' : document.getElementById('img').innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`;
+                break;
+                case 'us' : document.getElementById('img').innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`;
+                break;
+                case 'jp' : document.getElementById('img').innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`;
+                break;
+            }
+            document.getElementById('img').innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`;
+        }
+
+        let img = document.getElementById('img');
+        document.getElementById('kor').addEventListener('click', ()=> img.innerHTML = `<img src="/image/sunset-gedf09713e_1280.jpg" alt="">`)
+        document.getElementById('paris').addEventListener('click', ()=> img.innerHTML = `<img src="/image/eiffel-tower-gf5a8b1945_1280.jpg" alt="">`)
+        document.getElementById('us').addEventListener('click', ()=> img.innerHTML = `<img src="/image/hollywood-sign-g166461a59_1280.jpg" alt="">`)
+        document.getElementById('jp').addEventListener('click', ()=> img.innerHTML = `<img src="/image/woman-gda659d52d_1280.jpg" alt="">`)
+ 
+    </script>
+</body>
+</html>

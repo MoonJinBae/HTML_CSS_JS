@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body{
+            min-width: 900px;
+        }
+        .container{
+            margin: auto;
+            width: 80%;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/image/air.jpg);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .top{
+            width: 100%;
+            height: 80px;
+            background-color: darkgray;
+            position: absolute;
+        }
+        .bottom{
+            width: 100%;
+            height: 80px;
+            background-color: darkgray;
+            position: absolute;
+            bottom: 0;
+        }
+        .inner{
+            width: 800px;
+            margin: auto;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .inner>img{
+            margin: 20px auto;
+            width: 70px;
+            height: 70px;
+        }
+        .inner>i{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        .text1{
+            margin: 10px 30px;
+            font-size: 35px;
+            font-weight: 700;
+        }
+        .text2{
+            font-weight: 550;
+            margin-bottom: 20px;
+        }
+        .help{
+            box-sizing: border-box;
+            margin: 0;
+            font-weight: 550;
+            background-color: lightgray;
+            height: 50px;
+            bottom: 0;
+        }
+        .bi{
+            font-size: 20px;
+            animation: rotate 2.5s infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg);}
+            50% { transform: rotate(180deg);}
+            100% { transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="inner">
+            <img src="/image/air2.jpg" alt="">
+            <p class="text1">사용자 수가 많아 접속이 지연되고 있습니다. 잠시 기다려주세요.</p>
+            <!-- 아이콘 -->
+            <i class="bi bi-hourglass-split"></i>
+            <p class="text2">접속이 어려운 경우 이전으로 자동 이동합니다.</p>
+            <p class="help">관련 문의 사항은 고객센터에 문의해주시면 친절히 안내드리겠습니다.
+                <br>고객상담전화 000-000-0000
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>positionEX</title>
+    <style>
+        .p-box{
+            position: relative;
+            height: 250px;
+            background-color: bisque;
+        }
+        .box{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        .box:nth-child(1){
+            background-color: blue;
+            top: 25px;
+            left: 20px;
+        }
+        .box:nth-child(2){
+            background-color: blueviolet;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .box:nth-child(3){
+            background-color: brown;
+            top: 25px;
+            right: 20px;
+        }
+        .outer{
+            margin: 50px auto;
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: black;
+        }
+        .inner{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            background-color: red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+</body>
+</html>

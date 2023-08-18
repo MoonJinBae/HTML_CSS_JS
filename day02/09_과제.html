@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+    <style>
+        a:link{
+            color: greenyellow;
+        }
+        a:visited{
+            color: rgb(0, 0, 0);
+        }
+        a:activev{
+            color: blue;
+        }
+        #google {
+            font-size: 100px;
+            font-style: italic;
+        }
+        #naver {
+            font-size: 50px;
+            font-style: italic;
+        }
+        #daum {
+            font-size: 80px;
+        }
+        button{
+            background-color: rgb(100, 156, 194);
+            margin-left: 0;
+            padding-left: 0;
+            
+        }
+        .site:hover{
+            color: rgb(236, 85, 29);
+        }
+        ul>li{
+            font-size: 30px;
+            list-style: none;
+            /* diplay: inline; => 리스트 가로정렬 */
+            display: inline;
+            /* margin-right: => 오륵 */
+            margin-right: 20px;
+        }
+        ul>li:nth-child(even){
+            color: red;
+        }
+        ul>li:nth-child(3n){
+            color: rgb(0, 0, 0);
+        }
+        ul>li:first-child, li:last-child{
+            font-weight: 700;
+        }
+        ul>li:hover{
+            color: rgb(183, 163, 12);
+        }
+        ul>li::after{
+            content: "]";
+        }
+        ul>li::before{
+            content: "[";
+        }
+    </style>
+    <!-- 
+        ::after : 뒤에 붙이는 가상 값
+        ::before : 전에 붙이는 가상 값 
+     -->
+</head>
+<body>
+    <!-- 
+        div 3개를 만들어
+        naver, google, daum 사이트로 연결되게 하고,
+        각 div는 색깔과 모양을 달리 스타일 주기.
+        color : 글자색
+        background-color : 면색(배경)
+        폰트 관련 스타일들.
+
+        링크 클릭했는지에 따라서 글꼴 색이 달라지는 가상선택자가 있음.
+        (의사선택자)
+        a:active(클릭할때 색)
+        a:visited(링크를 눌러본 후 색)
+        a:link(방문전)
+     -->
+     <p>
+        <div>
+            <button style="border: 0;">
+                <a href="https://www.naver.com/" target="_blank" name="naver" id="naver" class="site">
+                    NAVER
+                </a>
+            </button>
+         </div>
+     </p>
+     <hr>
+     <p>
+        <div>
+            <button style="border: 0;">
+                <a href="https://www.google.co.kr/" target="_blank" name="google" id="google" class="site">
+                    Google
+                </a>
+            </button>
+         </div>
+     </p>
+     <hr>
+     <p>
+        <div>
+            <button style="border: 0;">
+                <a href="https://www.daum.net/" target="_blank" name="daum" id="daum" class="site">
+                    Daum
+                </a>
+            </button>
+         </div>
+     </p>
+     <hr>
+
+     <!-- 
+        ul -> li 태그 10개 생성
+        전체 글자크기 크게(일정하게..)
+        짝수 : 색 변경
+        3, 6, 9 : 초록색
+        1, 10 : 굴게
+        :hover 도 사용
+        list-style: none; => 리스트 스타일 제거
+      -->
+     <ul>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+        <li>손오공</li>
+     </ul>
+</body>
+</html>

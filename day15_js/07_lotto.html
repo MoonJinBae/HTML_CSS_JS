@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+</head>
+<body>
+    <h1>
+        1 ~ 45 까지의 중복되지 않는 숫자 6개를 랜덤으로 추출 후 순서대로 출력하기 단, Set 객체를 사용할 것
+    </h1>
+    <button type="button" onclick="getRan(); this.onclick=''">랜덤번호 6개 출력</button>
+    <!-- 랜덤 번호 출력 -->
+    <h2 id="ran"></h2>
+    <button type="button" onclick="getLotto(); this.onclick=null">당첨번호(마지막은 보너스번호) 출력</button>
+    <!-- 정답 번호 출력 -->
+    <h2 id="rotto"></h2>
+    <button type="button" id="resultBtn">결과확인</button>
+    <!-- 결과 출력 -->
+    <h2 id="result"></h2>
+
+    <script>
+        let ran = new Set(); // 중복 제거 저장
+        let ran2 = []; // 숫자 정렬용
+        let rotto = new Set(); // 중복 제거 저장
+        let rotto2 = []; // 숫자 정렬용
+        let bonusNum = 0; // 보너스번호
+
+        // 유저 번호 생성
+        function getRan(){
+            // 랜덤수 저장
+            while(ran.size < 6){
+                ran.add(Math.floor(Math.random()*45)+1);
+            };
+            ran.forEach((e)=>{
+                ran2.push(e);
+            });
+            // 정렬
+            sort(ran2);
+            // 출력
+            document.getElementById('ran').innerText = ran2;
+        };
+
+        // 정답 번호 생성
+        function getLotto(){
+            // 정답 번호 저장
+            while(rotto.size <= 6){
+                rotto.add(Math.floor(Math.random()*45)+1);
+            };
+            rotto.forEach((e)=>{
+                rotto2.push(e);
+            });
+            bonusNum = rotto2.pop();
+            // 정렬
+            sort(rotto2);
+            // 출력
+            document.getElementById('rotto').innerText = `${rotto2} 보너스[${bonusNum}]`;
+        };
+
+        // 결과 출력
+        document.getElementById('resultBtn').addEventListener('click', ()=>{
+            let ans = 0; // 정답수
+            let bonusAns = 0; // 보너스번호 일치
+            let result = document.getElementById('result');
+            
+            for(let i = 0; i < rotto2.length; i++){
+                if(ran2[i] == bonusNum){
+                    bonusAns++;
+                }
+                for(let j = 0; j < rotto2.length; j++){
+                    if(rotto2[i] == ran2[j]){
+                        ans++;
+                    }
+                }
+            }
+            console.log(ans)
+            console.log(bonusAns)
+            switch(ans){
+                case 6: result.innerText = "대박~!! 1등 당첨!!";
+                    break;
+                case 5: 
+                    if(bonusAns == 1){
+                        result.innerText = "축하합니다~!! 2등 당첨!!"
+                        break;
+                    }
+                    result.innerText = "3등 당첨~~!!"
+                    break;
+                case 4: result.innerText = "4등 당첨~~!!"
+                    break;
+                case 3: result.innerText = "5등 당첨~~!!"
+                    break;
+                default : result.innerText =  "꽝~~!!";
+            }
+
+        });
+
+        // 정렬 함수
+        function sort(arr){
+            arr.sort(function(a,b){
+            return a-b;
+            });
+        };
+    </script>
+</body>
+</html>
